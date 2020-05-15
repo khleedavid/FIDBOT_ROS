@@ -1,0 +1,56 @@
+<launch>
+  <!-- Arguments -->
+  <arg name="map_file" default="$(find ipa_room_segmentation)/common/files/project_maps/bigger_map.yaml"/>
+  <arg name="open_rviz" default="true"/>
+  <arg name="move_forward_only" default="false"/>
+
+
+ 
+   <!-- differential drive -->
+  <include file="$(find differential_drive)/launch/differential_drive_launch.launch">
+  </include>
+ 
+    <!-- urdf-->
+  <include file="$(find fidbot)/launch/display.launch">
+  </include>
+
+  <!-- Map server -->
+  <node pkg="map_server" name="map_server" type="map_server" args="$(arg map_file)"/>
+
+  <!-- AMCL -->
+  <include file="$(find turtlebot3_navigation)/launch/amcl_fidbot.launch"/>
+  <!--<include file="$(find hector_slam_launch)/launch/tutorial.launch"/>-->
+
+  <!-- move_base -->
+  <include file="$(find turtlebot3_navigation)/launch/move_base_fidbot.launch">
+    <arg name="move_forward_only" value="$(arg move_forward_only)"/>
+  </include>
+
+  <!-- rviz -->
+  <!-- <group if="$(arg open_rviz)"> 
+    <node pkg="rviz" type="rviz" name="rviz" required="true"
+          args="-d $(find turtlebot3_navigation)/rviz/turtlebot3_navigation.rviz"/>
+  </group> -->
+
+  <!-- follow waypoints -->
+  <env name="ROSCONSOLE_FORMAT" value="[${severity}][${thread}][${node}/${function}:${line}]: ${message}"/>
+
+  <node pkg="follow_waypoints" type="follow_waypoints" name="follow_waypoints" output="screen" clear_params="true">
+    <param name="goal_frame_id" value="map"/>
+  </node>
+
+  <!-- Launch the grid map tutorial demo node -->
+  <node pkg="grid_map_demos" type="eg4301_demo_FIDBot" name="grid_map_eg4301_demo_FIDBot" output="screen" />
+
+  <!-- Launch the grid map visualizer -->
+  <node pkg="grid_map_visualization" type="grid_map_visualization" name="grid_map_visualization" output="screen">
+    <rosparam command="load" file="$(find grid_map_demos)/config/eg4301_demo_FIDBot.yaml" />
+  </node>
+
+  <!-- path planning -->
+  <include file="$(find ipa_room_exploration)/ros/launch/room_exploration_action_server.launch">
+  </include>
+
+  <!-- Launch RViz with the demo configuration -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find grid_map_demos)/rviz/grid_map_eg4301_demo1.rviz" />
+</launch>
