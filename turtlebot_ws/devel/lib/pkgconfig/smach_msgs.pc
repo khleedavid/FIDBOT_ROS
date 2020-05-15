@@ -1,0 +1,8 @@
+prefix=/home/jerom/turtlebot_ws/devel
+
+Name: smach_msgs
+Description: Description of smach_msgs
+Version: 2.0.1
+Cflags: -I/home/jerom/turtlebot_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime

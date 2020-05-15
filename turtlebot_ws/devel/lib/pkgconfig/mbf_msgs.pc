@@ -1,0 +1,8 @@
+prefix=/home/jerom/turtlebot_ws/devel
+
+Name: mbf_msgs
+Description: Description of mbf_msgs
+Version: 0.2.5
+Cflags: -I/home/jerom/turtlebot_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: actionlib_msgs geometry_msgs message_runtime nav_msgs std_msgs

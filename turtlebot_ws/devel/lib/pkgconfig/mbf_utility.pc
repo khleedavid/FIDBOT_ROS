@@ -1,0 +1,8 @@
+prefix=/home/jerom/turtlebot_ws/devel
+
+Name: mbf_utility
+Description: Description of mbf_utility
+Version: 0.2.5
+Cflags: -I/home/jerom/turtlebot_ws/src/move_base_flex/mbf_utility/include
+Libs: -L${prefix}/lib -lmbf_utility
+Requires: geometry_msgs roscpp tf tf2 tf2_ros tf2_geometry_msgs

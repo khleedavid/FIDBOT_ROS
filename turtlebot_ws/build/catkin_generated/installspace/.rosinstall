@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/jerom/turtlebot_ws/install/setup.sh

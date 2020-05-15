@@ -1,0 +1,8 @@
+prefix=/home/jerom/turtlebot_ws/devel
+
+Name: assem1
+Description: Description of assem1
+Version: 1.0.0
+Cflags: 
+Libs: -L/home/jerom/turtlebot_ws/devel/lib 
+Requires: 

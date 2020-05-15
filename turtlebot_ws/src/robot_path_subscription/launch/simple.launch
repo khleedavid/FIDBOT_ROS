@@ -1,0 +1,37 @@
+ <launch>
+
+  <arg name="model" default="$(env TURTLEBOT3_MODEL)" doc="model type [burger, waffle, waffle_pi]"/>
+
+  <include file="$(find turtlebot3_gazebo)/launch/turtlebot3_empty_world.launch"></include>
+
+   <!-- Turtlebot3 -->
+  <include file="$(find turtlebot3_bringup)/launch/turtlebot3_remote.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
+  <!-- <include file="$(find turtlebot_bringup)/launch/3dsensor.launch">
+     <arg name="rgb_processing" value="false" />
+     <arg name="depth_registration" value="false" />
+     <arg name="depth_processing" value="false" />
+     <arg name="scan_topic" value="/scan" />
+   </include> -->
+
+   <!-- Map server -->
+   <arg name="map_file" default="$(find ipa_room_segmentation)/common/files/project_maps/simple_plan_corrected.yaml"/>
+   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+   <!-- Localization -->
+   <arg name="initial_pose_x" default="0.0"/>
+   <arg name="initial_pose_y" default="0.0"/>
+   <arg name="initial_pose_a" default="0.0"/>
+   <include file="$(find turtlebot3_navigation)/launch/amcl.launch">
+     <arg name="initial_pose_x" value="$(arg initial_pose_x)"/>
+     <arg name="initial_pose_y" value="$(arg initial_pose_y)"/>
+     <arg name="initial_pose_a" value="$(arg initial_pose_a)"/>
+   </include>
+
+
+   <!-- Move base -->
+   <include file="$(find turtlebot3_navigation)/launch/includes/move_base.launch.xml"/>
+
+ </launch>

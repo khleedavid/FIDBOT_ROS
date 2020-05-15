@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="fidbot">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00060977487405043 -7.6889684685888E-06 -0.00250008439111735"
+        rpy="0 0 0" />
+      <mass
+        value="0.335039217090362" />
+      <inertia
+        ixx="0.00173457044635722"
+        ixy="9.63211823887215E-08"
+        ixz="-3.45257254508464E-09"
+        iyy="0.00202947658886835"
+        iyz="2.17400465193859E-13"
+        izz="0.00376265109504113" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="linkbox">
+    <inertial>
+      <origin
+        xyz="-0.0917952522284009 -0.00404501253313666 -0.00105179580813172"
+        rpy="0 0 0" />
+      <mass
+        value="0.639472525879179" />
+      <inertia
+        ixx="0.00230059306653575"
+        ixy="-3.47861583516215E-18"
+        ixz="7.88900876989971E-06"
+        iyy="0.00325151836199418"
+        iyz="3.04424803142244E-07"
+        izz="0.00149830362286689" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkbox.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkbox.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jointbox"
+    type="fixed">
+    <origin
+      xyz="0 0.092 0.054"
+      rpy="-1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="linkbox" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="linkLIDAR">
+    <inertial>
+      <origin
+        xyz="-0.00748249753674316 0.0103923028642053 9.15432607012656E-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.33633465232473" />
+      <inertia
+        ixx="0.000636948443182251"
+        ixy="0.000158328723185597"
+        ixz="8.02103268501332E-07"
+        iyy="0.00110829768548224"
+        iyz="3.05788753903622E-06"
+        izz="0.000986251065152222" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkLIDAR.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkLIDAR.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jointLIDAR"
+    type="fixed">
+    <origin
+      xyz="-0.0918176074979228 -0.1035 0.000896991546574535"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="linkbox" />
+    <child
+      link="linkLIDAR" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="linkIMU">
+    <inertial>
+      <origin
+        xyz="0.00189704834489479 -0.00123595477383354 0.000911029985282474"
+        rpy="0 0 0" />
+      <mass
+        value="0.00585503983141193" />
+      <inertia
+        ixx="3.24242120502615E-06"
+        ixy="1.005726718568E-23"
+        ixz="1.71850009391159E-09"
+        iyy="4.29745565295782E-06"
+        iyz="-7.20401860581613E-24"
+        izz="1.05904919056805E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkIMU.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkIMU.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jointIMU"
+    type="fixed">
+    <origin
+      xyz="-0.135866488834025 -0.000515942639651323 0.00401350388362468"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="linkIMU" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="linkultra">
+    <inertial>
+      <origin
+        xyz="-0.0800030864666462 -0.000613139021023029 -0.0538948314891746"
+        rpy="0 0 0" />
+      <mass
+        value="0.0574699336614826" />
+      <inertia
+        ixx="1.49818137279467E-05"
+        ixy="3.79839285253487E-07"
+        ixz="-3.6677225925484E-06"
+        iyy="1.6170454609226E-05"
+        iyz="-3.87279432054593E-07"
+        izz="1.576324578047E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkultra.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkultra.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jointultra"
+    type="fixed">
+    <origin
+      xyz="0.106250059451623 0.0956178563765655 -0.0254999999999999"
+      rpy="1.5707963267949 0 2.30244441468232" />
+    <parent
+      link="base_link" />
+    <child
+      link="linkultra" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="linkspacer">
+    <inertial>
+      <origin
+        xyz="0.0716666666666667 0.0165 -0.10642135623731"
+        rpy="0 0 0" />
+      <mass
+        value="0.00139957952717425" />
+      <inertia
+        ixx="1.27799105575099E-07"
+        ixy="-6.69399091984228E-41"
+        ixz="2.56699380211772E-57"
+        iyy="1.57452696807103E-09"
+        iyz="-6.82424005356248E-25"
+        izz="1.27799105575099E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkspacer.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkspacer.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jointspacer"
+    type="fixed">
+    <origin
+      xyz="0.04 0.10642135623731 -0.033"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="base_link" />
+    <child
+      link="linkspacer" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="linkgear">
+    <inertial>
+      <origin
+        xyz="0.12813149575428 0.143572436141778 0.201951014377181"
+        rpy="0 0 0" />
+      <mass
+        value="0.591305364986354" />
+      <inertia
+        ixx="0.0014132340066407"
+        ixy="7.21539816356571E-06"
+        ixz="-3.28293928346403E-06"
+        iyy="0.00307496046660538"
+        iyz="6.28369033110642E-08"
+        izz="0.00177479954819302" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkgear.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://fidbot/meshes/linkgear.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="jointgear"
+    type="fixed">
+    <origin
+      xyz="-0.0603213098451419 -0.14598622913024 -0.30829172080317"
+      rpy="0 0 0" />
+    <parent
+      link="linkspacer" />
+    <child
+      link="linkgear" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

@@ -1,0 +1,8 @@
+prefix=/home/jerom/turtlebot_ws/devel
+
+Name: FIDBot
+Description: Description of FIDBot
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

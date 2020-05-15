@@ -1,0 +1,8 @@
+prefix=/home/jerom/turtlebot_ws/install
+
+Name: sonar_pointcloud
+Description: Description of sonar_pointcloud
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: pcl_conversions pcl_ros roscpp rospy std_msgs visualization_msgs

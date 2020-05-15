@@ -1,0 +1,6 @@
+set(differential_drive_SETUP_PY_VERSION "0.1.0")
+set(differential_drive_SETUP_PY_SCRIPTS "")
+set(differential_drive_SETUP_PY_PACKAGES "​differential_drive")
+set(differential_drive_SETUP_PY_PACKAGE_DIRS "src/​differential_drive")
+set(differential_drive_SETUP_PY_MODULES "")
+set(differential_drive_SETUP_PY_MODULE_DIRS "")

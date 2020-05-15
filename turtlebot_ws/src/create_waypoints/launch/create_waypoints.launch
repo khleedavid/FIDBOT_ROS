@@ -1,0 +1,7 @@
+<launch>
+
+  <node pkg="create_waypoints" type="create_waypoints" name="create_waypoints" output="screen" clear_params="true">
+    <param name="goal_frame_id" value="map"/>
+  </node>
+</launch>
+
